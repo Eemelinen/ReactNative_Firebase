@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, ActivityIndicator, View, Text, } from 'react-native';
+import { StyleSheet, ScrollView, ActivityIndicator, View, Text, Button } from 'react-native';
 import firebase from '../Firebase';
 
 class InputScreen extends Component {
@@ -49,6 +49,11 @@ class InputScreen extends Component {
     return (
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
+        <Button
+          title="Login Page"
+          onPress={() => this.props.navigation.navigate('Login')}
+        />
 
         <View style={styles.itemsList}>
           {this.state.inputs.map((item, index) => {

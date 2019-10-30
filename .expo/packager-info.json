@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 12244,
   "expoServerNgrokUrl": "https://jj-7ba.eemeli91.nativefirebase1.exp.direct",
   "packagerNgrokUrl": "https://packager.jj-7ba.eemeli91.nativefirebase1.exp.direct",
-  "ngrokPid": 18448
+  "ngrokPid": 15316
 }
