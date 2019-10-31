@@ -6,6 +6,7 @@ import InputScreen from './components/InputScreen';
 import DetailScreen from './components/InputDetails';
 import LoginScreen from './components/LoginScreen';
 import LoadingScreen from './components/LoadingScreen';
+import NewEmpScreen from './components/NewEmpScreen'
 
 const RootStack = createStackNavigator(
   {
@@ -13,9 +14,10 @@ const RootStack = createStackNavigator(
     Details: DetailScreen,
     Login: LoginScreen,
     Loading: LoadingScreen,
+    NewEmp: NewEmpScreen,
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'NewEmp',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#777777',

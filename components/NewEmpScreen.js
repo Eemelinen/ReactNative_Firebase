@@ -2,35 +2,37 @@ import React, { Component } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator, View, Text, Button } from 'react-native';
 import firebase from '../Firebase';
 
-class InputScreen extends Component {
+class NewEmpScreen extends Component {
   static navigationOptions = {
     title: 'List of inputs',
   };
 
   constructor() {
     super();
-    this.ref = firebase.firestore().collection('inputs');
+    this.ref = firebase.firestore().collection('EemelinTesti');
     
     this.unsubscribe = null;
     this.state = {
       isLoading: true,
-      inputs: []
+      newemp: []
     };
   }
 
   onCollectionUpdate = (querySnapshot) => {
-    const inputs = [];
+    const newemp = [];
     querySnapshot.forEach((doc) => {
-      const { name, text, } = doc.data();
-      inputs.push({
+      const { a, b, c, d } = doc.data();
+      newemp.push({
         key: doc.id,
         doc,
-        name,
-        text,
+        a,
+        b,
+        c,
+        d,
       });
     });
     this.setState({
-      inputs,
+      newemp,
       isLoading: false,
    });
   }
@@ -52,21 +54,18 @@ class InputScreen extends Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
         <Button
-          title="Login Page"
-          onPress={() => this.props.navigation.navigate('Login')}
-        />
-
-        <Button
-          title="NewEmp Page"
-          onPress={() => this.props.navigation.navigate('NewEmp')}
+          title="Input page"
+          onPress={() => this.props.navigation.navigate('Input')}
         />
 
         <View style={styles.itemsList}>
-          {this.state.inputs.map((item, index) => {
+          {this.state.newemp.map((item, index) => {
             return (
               <View key={index} style={styles.item}>
-                <Text>{item.name}</Text>
-                <Text>{item.text}</Text>
+                <Text>{item.a}</Text>
+                <Text>{item.b}</Text>
+                <Text>{item.c}</Text>
+                <Text>{item.d}</Text>
               </View>
             );
           })}
@@ -104,4 +103,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default InputScreen;
+export default NewEmpScreen;
